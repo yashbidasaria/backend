@@ -47,13 +47,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
 
+CSRF_COOKIE_SECURE = False
 ROOT_URLCONF = 'Project.urls'
 
 #CORS_ORIGIN_WHITELIST = (
@@ -178,3 +178,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}

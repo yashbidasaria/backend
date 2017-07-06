@@ -7,25 +7,30 @@ from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 from django.http import HttpResponse, JsonResponse
 from qirana_backend.dataset.models import dataset_meta, dblp_meta, crash_meta, world_city_meta, world_country_meta, world_countryLang_meta, ssb_dwdate, ssb_customer, ssb_supplier, ssb_part, ssb_lineorder, tpch_customer, tpch_nation, tpch_lineitem
 from qirana_backend.dataset.serializers import nameSerializer, dblpSerializer, crashSerializer, worldCitySerializer, worldCountrySerializer, worldLangSerializer, ssb_customerSer, ssb_dwdateSer, ssb_partSer, ssb_supSer, ssb_lineSer, tpch_NationSer, tpch_CustSer
 # Create your views here.
+@csrf_exempt
 def list(request):
     if request.method == 'GET':
         try:
             data = json.loads(open('C:/Users/Yashbidasaria/Desktop/datasets.json').read())
         except 'FileNotFoundError':
             print("Error in reading file")
-        #data = data.replace('\n', ''),
-        #data = data.replace('\t', '')
-        #data = data.replace("\"", '')
 
         jsonData = json.dumps(data)
         datasets = dataset_meta.objects.all()
         serializer = nameSerializer(datasets, many=True)
-        # return Response(serializer.data)
         return JsonResponse(data, safe=False)
+    elif request.method == 'POST':
+        data = json.loads(request.body)
+        with open('C:/Users/Yashbidasaria/Desktop/datasets.json', 'w') as outfile:
+            json.dump(data, outfile)
+        #print(data)
+        return JsonResponse(request.POST)
 
 def dblp_data(request):
     if request.method == 'GET':
