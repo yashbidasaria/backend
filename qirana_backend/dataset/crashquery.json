@@ -1,0 +1,24 @@
+[
+{
+                "text": "Query 1",
+                "value": "q1",
+                "query": "select state, count(*) from crash group by State",
+                "htmltemplate": "crashq1.html"
+            }, {
+                "text": "Query 2",
+                "value": "q2",
+                "query": "select count(*) from crash where State = Texas and Gender = \"Male\" and Alcohol_Results > 0.0",
+                "htmltemplate": "crashq2.html"
+            }, {
+                "text": "Query 3",
+                "value": "q3",
+                "query": "select sum(Fatalities_in_crash) from crash where State = \"California\" and Crash_Date >= date \"2011-01-01\" and Crash_Date < date \"2011-01-01\" + interval \"6\" month;",
+                "htmltemplate": "crashq3.html"
+            },
+            {
+                "text": "Query 4",
+                "value": "q4",
+                "query": "select count(Fatalities_in_crash) from crash where State = \"Wisconsin\" and Injury_Severity = \"Fatal Injury (K)\" and (Atmospheric_Condition = \"Snow\");",
+                "htmltemplate": "crashq4.html"
+            }
+]

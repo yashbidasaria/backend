@@ -1,0 +1,13 @@
+[
+{
+                "text": "Query 1",
+                "value": "q1",
+                "query": "select count(*) from dblp A where FromNodeId > 10000",
+                "htmltemplate": "dblpq1.html"
+            }, {
+                "text": "Query 2",
+                "value": "q2",
+                "query": "select ToNodeId from dblp where (FromNodeId = 148255 or FromNodeId = 45479)",
+                "htmltemplate": "dblpq2.html"
+            }
+]

@@ -30,6 +30,14 @@ urlpatterns = [
 
     url(r'^tpchCust/$', views.tpchCust_data),
 
-    url(r'^tpchNation/$', views.tpchCust_data)
+    url(r'^tpchNation/$', views.tpchCust_data),
+
+    url(r'^crashquery/$', views.crashquery),
+
+    url(r'^DBLPquery/$', views.dblpquery),
+
+    url(r'^ssbquery/$', views.ssbquery),
+
+    url(r'^world-2query/$', views.worldquery)
 
 ]

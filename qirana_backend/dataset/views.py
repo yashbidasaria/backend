@@ -29,9 +29,58 @@ def list(request):
         data = json.loads(request.body)
         with open('C:/Users/Yashbidasaria/Desktop/datasets.json', 'w') as outfile:
             json.dump(data, outfile)
-        #print(data)
+        #print(data)x
         return JsonResponse(request.POST)
+@csrf_exempt
+def crashquery(request):
+    if request.method == 'GET':
+        try:
+            data = json.loads(open('qirana_backend/dataset/crashquery.json').read())
+        except 'FileNotFoundError':
+            print("Error in reading file")
 
+        jsonData = json.dumps(data)
+        datasets = dataset_meta.objects.all()
+        serializer = nameSerializer(datasets, many=True)
+        return JsonResponse(data, safe=False)
+@csrf_exempt
+def dblpquery(request):
+    if request.method == 'GET':
+        try:
+            data = json.loads(open('qirana_backend/dataset/dblpquery.json').read())
+        except 'FileNotFoundError':
+            print("Error in reading file")
+
+        jsonData = json.dumps(data)
+        datasets = dataset_meta.objects.all()
+        serializer = nameSerializer(datasets, many=True)
+        response = JsonResponse(data, safe=False)
+        return JsonResponse(data, safe=False)
+@csrf_exempt
+def ssbquery(request):
+    if request.method == 'GET':
+        try:
+            data = json.loads(open('qirana_backend/dataset/ssbquery.json').read())
+        except 'FileNotFoundError':
+            print("Error in reading file")
+
+        jsonData = json.dumps(data)
+        datasets = dataset_meta.objects.all()
+        serializer = nameSerializer(datasets, many=True)
+        return JsonResponse(data, safe=False)
+@csrf_exempt
+def worldquery(request):
+    if request.method == 'GET':
+        try:
+            data = json.loads(open('qirana_backend/dataset/world-2query.json').read())
+        except 'FileNotFoundError':
+            print("Error in reading file")
+
+        jsonData = json.dumps(data)
+        datasets = dataset_meta.objects.all()
+        serializer = nameSerializer(datasets, many=True)
+        return JsonResponse(data, safe=False)
+@csrf_exempt
 def dblp_data(request):
     if request.method == 'GET':
         data = dblp_meta.objects.all()[:5]
@@ -108,6 +157,8 @@ def tpchNation_data(request):
         data = tpch_nation.objects.all()[:5]
         serializer = tpch_NationSer(data, many=True)
         return JsonResponse(serializer.data, safe=False)
+
+
 
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
