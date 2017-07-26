@@ -30,7 +30,19 @@ urlpatterns = [
 
     url(r'^tpchCust/$', views.tpchCust_data),
 
-    url(r'^tpchNation/$', views.tpchCust_data),
+    url(r'^tpchNation/$', views.tpchNation_data),
+
+    url(r'^tpchLineitem/$', views.tpchLineitem_data),
+
+    url(r'^tpchOrders/$', views.tpchorder_data),
+
+    url(r'^tpchPart/$', views.tpchpart_data),
+
+    url(r'^tpchPartsupp/$', views.tpchpartsupp_data),
+
+    url(r'^tpchRegion/$', views.tpchregion_data),
+
+    url(r'^tpchSupplier/$', views.tpchsupplier_data),
 
     url(r'^crashquery/$', views.crashquery),
 
@@ -38,6 +50,16 @@ urlpatterns = [
 
     url(r'^ssbquery/$', views.ssbquery),
 
-    url(r'^world-2query/$', views.worldquery)
+    url(r'^tpchquery/$', views.tpchquery),
+
+    url(r'^world-2query/$', views.worldquery),
+
+    url(r'^seller1/$', views.seller1),
+
+    url(r'^seller2/$', views.seller2),
+
+    url(r'^test/$', views.test),
+
+    url(r'^new_crash/$', views.newCrashData)
 
 ]

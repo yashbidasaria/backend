@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from qirana_backend.dataset.models import dataset_meta, crash_meta, dblp_meta, world_city_meta, world_country_meta, \
-    world_countryLang_meta, ssb_customer, ssb_dwdate, ssb_lineorder, ssb_part, ssb_supplier, tpch_customer, tpch_lineitem, tpch_nation
+    world_countryLang_meta, ssb_customer, ssb_dwdate, ssb_lineorder, ssb_part, ssb_supplier, tpch_customer, tpch_lineitem, tpch_nation, tpch_part, tpch_orders, tpch_partsupp, tpch_region, tpch_supplier
 #from django.db import models
 
 
@@ -84,3 +84,38 @@ class tpch_NationSer(serializers.ModelSerializer):
         model = tpch_nation
         fields = ('n_nationkey', 'n_name', 'n_regionkey', 'n_comment')
 
+class tpch_lineitemSer(serializers.ModelSerializer):
+
+    class Meta:
+        model = tpch_lineitem
+        fields = ('l_orderkey','l_partkey','l_suppkey','l_linenumber','l_quantity','l_extendedprice','l_discount','l_tax','l_returnflag','l_linestatus','l_shipdate','l_commitdate','l_receiptdate','l_shipinstruct','l_shipmode','l_comment','l_id')
+
+class tpch_orderSer(serializers.ModelSerializer):
+
+    class Meta:
+        model = tpch_orders
+        fields = ('o_orderkey','o_custkey','o_orderstatus','o_totalprice','o_orderdate','o_orderpriority','o_clerk','o_shippriority','o_comment')
+
+class tpch_partSer(serializers.ModelSerializer):
+
+    class Meta:
+        model = tpch_part
+        fields = ('p_partkey','p_name','p_mfgr','p_brand','p_type','p_size','p_container','p_retailprice','p_comment')
+
+class tpch_partsuppSer(serializers.ModelSerializer):
+
+    class Meta:
+        model = tpch_partsupp
+        fields = ('ps_partkey','ps_suppkey','ps_availqty','ps_supplycost','ps_comment','ps_id')
+
+class tpch_regionSer(serializers.ModelSerializer):
+
+    class Meta:
+        model = tpch_region
+        fields = ('r_regionkey','r_name','r_comment')
+
+class tpch_supplierSer(serializers.ModelSerializer):
+
+    class Meta:
+        model = tpch_supplier
+        fields = ('s_suppkey','s_name','s_address','s_nationkey','s_phone','s_acctbal','s_comment')

@@ -186,7 +186,7 @@ class tpch_customer(models.Model):
     c_address = models.CharField()
     c_nationkey = models.IntegerField()
     c_phone = models.CharField()
-    c_acctbal = models.DecimalField()
+    c_acctbal = models.IntegerField()
     c_mktsegment = models.CharField()
     c_comment = models.CharField()
 
@@ -228,4 +228,67 @@ class tpch_nation(models.Model):
     class Meta:
         db_table = 'nation'
         app_label = '5'
-#class tpch_orders(models.Model):
+
+class tpch_orders(models.Model):
+    o_orderkey = models.IntegerField(primary_key=True)
+    o_custkey = models.IntegerField()
+    o_orderstatus = models.CharField()
+    o_totalprice = models.DecimalField()
+    o_orderdate = models.DateField()
+    o_orderpriority = models.CharField()
+    o_clerk = models.CharField()
+    o_shippriority = models.IntegerField()
+    o_comment  = models.CharField()
+
+    class Meta:
+        db_table = 'orders'
+        app_label = '5'
+
+class tpch_part(models.Model):
+    p_partkey = models.IntegerField(primary_key=True)
+    p_name = models.CharField()
+    p_mfgr = models.CharField()
+    p_brand = models.CharField()
+    p_type = models.CharField()
+    p_size = models.IntegerField()
+    p_container = models.CharField()
+    p_retailprice = models.IntegerField()
+    p_comment = models.CharField()
+
+    class Meta:
+        db_table = 'part'
+        app_label = '5'
+
+class tpch_partsupp(models.Model):
+    ps_partkey = models.IntegerField(primary_key=True)
+    ps_suppkey = models.IntegerField()
+    ps_availqty = models.IntegerField()
+    ps_supplycost = models.IntegerField()
+    ps_comment = models.CharField()
+    ps_id = models.IntegerField()
+
+    class Meta:
+        db_table = 'partsupp'
+        app_label = '5'
+
+class tpch_region(models.Model):
+    r_regionkey = models.IntegerField(primary_key=True)
+    r_name = models.CharField()
+    r_comment = models.CharField()
+
+    class Meta:
+        db_table = 'region'
+        app_label = '5'
+
+class tpch_supplier(models.Model):
+    s_suppkey = models.IntegerField(primary_key=True)
+    s_name = models.CharField()
+    s_address = models.CharField()
+    s_nationkey = models.IntegerField()
+    s_phone = models.CharField()
+    s_acctbal = models.IntegerField()
+    s_comment = models.CharField()
+
+    class Meta:
+        db_table = 'supplier'
+        app_label = '5'

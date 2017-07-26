@@ -1,0 +1,42 @@
+[{
+                "text": "Query 1",
+                "value": "q1",
+                "query": "",
+                "htmltemplate": "tpchq1.html"
+            }, {
+                "text": "Query 2",
+                "value": "q2",
+                "query": "",
+                "htmltemplate": "tpchq2.html"
+            }, {
+                "text": "Query 3",
+                "value": "q3",
+                "query": "",
+                "htmltemplate": "tpchq3.html"
+            },{
+                "text": "Query 4",
+                "value": "q4",
+                "query": "",
+                "htmltemplate": "tpchq4.html"
+            },{
+                "text": "Query 5",
+                "value": "q5",
+                "query": "",
+                "htmltemplate": "tpchq5.html"
+            },{
+                "text": "Query 6",
+                "value": "q6",
+                "query": "",
+                "htmltemplate": "tpchq6.html"
+            },{
+                "text": "Query 7",
+                "value": "q7",
+                "query": "",
+                "htmltemplate": "tpchq7.html"
+            },{
+                "text": "Query 8",
+                "value": "q8",
+                "query": "",
+                "htmltemplate": "tpchq8.html"
+            }
+]
